@@ -1,9 +1,9 @@
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>String Producer Local URL>>>>>>>>>>>>>>>>>>>>>>
+1.String Producer Local URL
 
 curl --location 'http://localhost:8081/publish?message=new%20kafka%20message%20'
 
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Json Producer Local URL<<<<<<<<<<<<<<<<<<<<<<<<
+2.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Json Producer Local URL<<<<<<<<<<<<<<<<<<<<<<<<
 curl --location 'http://localhost:8081/jsonpublish' \
 --header 'Content-Type: application/json' \
 --data '{
