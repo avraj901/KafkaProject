@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.orderhistory.entity.OrderEntity;
+import com.orderhistory.kafka.JsonKafaProducer;
 import com.orderhistory.kafka.KafkaProducer;
 import com.orderhistory.payload.User;
 import com.orderhistory.service.OrderService;
@@ -31,8 +32,8 @@ public class OrderController {
 	@Autowired
 	KafkaProducer kafkaProducer;
 	
-	//@Autowired
-	//JsonKafaProducer jsonKafaProducer;
+	@Autowired
+	JsonKafaProducer jsonKafaProducer;
 	
 	@GetMapping("publish")
 	public ResponseEntity<String> publish(@RequestParam("message") String message) {
@@ -41,11 +42,12 @@ public class OrderController {
 		return ResponseEntity.ok("message sent to topic");
 	}
 	
-	//@PostMapping("jsonpublish")
-	//public ResponseEntity<String> publishJsonMessage(@RequestBody User user) {
-		//jsonKafaProducer.sendMessage(user);
-	//	return ResponseEntity.ok("Json message sent to topic");
-	//}
+	@PostMapping("jsonpublish")
+	public ResponseEntity<String> publishJsonMessage(@RequestBody User user) {
+		LOGERR.info("Inside the publish method message" +user);
+		jsonKafaProducer.sendMessage(user);
+		return ResponseEntity.ok("Json message sent to topic");
+	}
 	
 	
 	public Optional<OrderEntity> getOrderByOrderNumber(Long number) {
