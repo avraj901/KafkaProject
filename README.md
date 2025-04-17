@@ -11,3 +11,11 @@ curl --location 'http://localhost:8081/jsonpublish' \
     "firstName" : "Raj",
     "lastName" : "Rajbhar"
 } '
+
+
+3. curl --location 'http://localhost:8081/api/v1/orders' \
+--header 'Content-Type: application/json' \
+--data '{
+
+    "name":"avanish"
+}'
